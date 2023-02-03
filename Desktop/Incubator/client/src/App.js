@@ -4,6 +4,11 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Form from './components/common/Form';
 import Home from './components/Home';
+import Search from "./components/Search";
+import Add from "./components/Add";
+import Tasks from "./components/Tasks";
+import Complete from "./components/Complete";
+import Submit from "./components/Submit";
 import { app } from './fire';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
@@ -20,6 +25,7 @@ function App() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     let navigate = useNavigate();
+
     const handleAction = (id) => {
         const authentication = getAuth();
         if (id === 1) {
@@ -27,6 +33,7 @@ function App() {
                 .then((response) => {
                     navigate('/home')
                     sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
+                    sessionStorage.setItem('Email', email)
                 })
                 .catch((error) => {
                     console.log(error.code)
@@ -43,6 +50,7 @@ function App() {
                 .then((response) => {
                     navigate('/home')
                     sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
+                    sessionStorage.setItem('Email', email)
                 })
                 .catch((error) => {
                     if (error.code === 'auth/email-already-in-use') {
@@ -54,11 +62,12 @@ function App() {
 
     useEffect(() => {
         let authToken = sessionStorage.getItem('Auth Token')
-
+        let emailToken = sessionStorage.getItem('Email')
         if (authToken) {
             navigate('/home')
         }
     }, [])
+
     return (
         <div className="App">
             <>
@@ -90,6 +99,21 @@ function App() {
                         element={
                             <Home />}
                     />
+                    <Route path='/submit'
+                        element={
+                            <Submit />} />
+                    <Route path= '/add'
+                            element = {
+                            <Add />} />
+                    <Route path='/tasks'
+                        element={
+                            <Tasks />} />
+                    <Route path='/complete'
+                        element={
+                            <Complete />} />
+                    <Route path='/search'
+                        element={
+                            <Search />} />
                 </Routes>
             </>
         </div>
