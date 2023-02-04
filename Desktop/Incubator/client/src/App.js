@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Form from './components/common/Form';
 import Home from './components/Home';
-import Search from "./components/Search";
-import Add from "./components/Add";
-import Tasks from "./components/Tasks";
-import Complete from "./components/Complete";
-import Submit from "./components/Submit";
+//import Search from "./components/Search";
+//import Add from "./components/Add";
+//import Tasks from "./components/Tasks";
+//import Complete from "./components/Complete";
+//import Submit from "./components/Submit";
 import { app } from './fire';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
@@ -94,7 +94,7 @@ function App() {
                             />}
                     />
 
-                    <Route
+      /*              <Route
                         path='/home'
                         element={
                             <Home />}
@@ -113,7 +113,7 @@ function App() {
                             <Complete />} />
                     <Route path='/search'
                         element={
-                            <Search />} />
+                            <Search />} /> */
                 </Routes>
             </>
         </div>
