@@ -8,7 +8,6 @@ import { getFirestore } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../fire";
 import Header from "../header";
-import AuthHeader from "../AuthHeader";
 import Button from '@mui/material/Button';
 
 const AnimatedButton = styled.button`
