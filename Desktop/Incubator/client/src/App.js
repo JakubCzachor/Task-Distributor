@@ -94,12 +94,12 @@ function App() {
                             />}
                     />
 
-      /*              <Route
+                   <Route
                         path='/home'
                         element={
                             <Home />}
                     />
-                    <Route path='/submit'
+           /*          <Route path='/submit'
                         element={
                             <Submit />} />
                     <Route path= '/add'
