@@ -50,10 +50,12 @@ export default function Home() {
             const taskArray = [];
             querySnapshot.forEach((doc) => {
                 taskArray.push({
-                    name: doc.data().name,
-                    assignedUser: doc.data().assignedUser,
+                    name: doc.id,
+                    assignedUser: doc.data().claimedBy,
                     description: doc.data().description,
-                    email: doc.data().emails,
+                    email: doc.data().createdBy,
+                    completed: doc.data().completed,
+                    claimed: doc.data().claimed,
                 });
             });
             setTasks(taskArray);
@@ -71,10 +73,13 @@ export default function Home() {
                 <ul>
                     {tasks.map((task) => (
                         <li key={task.id}>
-                            <p>Name: {task.name}</p>
-                            <p>Assigned User: {task.assignedUser}</p>
-                            <p>Description: {task.description}</p>
-                            <p>Email: {task.email } </p>
+                            <p>Task ID: {task.name} <br/> <br />
+                                Description: {task.description} < br />
+                                Creator Email: {task.email} <br />
+                                Assigned User: {task.assignedUser } <br />
+                                Claimed: {String(task.claimed)}<br />
+                                Completed: {String(task.completed)}<br /><br />
+                            </p>
                         </li>
                     ))}
                 </ul>
