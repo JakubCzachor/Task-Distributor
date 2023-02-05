@@ -60,7 +60,6 @@ function Search() {
             collectionSnapshot.forEach(function (doc) {
                 tasks.push({
                     id: doc.id,
-                    title: doc.data().title,
                     description: doc.data().description,
                 });
             });
@@ -94,9 +93,7 @@ function Search() {
             {tasks.map((task, key) => {
                 return (
                     <div className="task" key={key}>
-                        <p> Task ID:{task.id } </p>
-                        <p> Title: {task.title}</p>
-                        <p> Description: {task.description}</p>
+                        <p> Task ID:{task.id}<br /> Description: {task.description}<br /><br /></p>
                     </div>
                 );
             })}
