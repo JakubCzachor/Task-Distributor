@@ -84,7 +84,7 @@ const Header = () => {
                             <StyledLink to="/search">Search New Tasks</StyledLink>
                         </DropdownItem>
                         <DropdownItem>
-                            <StyledLink to="/add">Add Tasks</StyledLink>
+                            <StyledLink to="/AddTask">Add Tasks</StyledLink>
                         </DropdownItem>
                         <DropdownItem>
                             <StyledLink to="/tasks">My Tasks</StyledLink>
@@ -95,6 +95,7 @@ const Header = () => {
                         <DropdownItem>
                             <StyledLink to="/submit">Submit Tasks</StyledLink>
                         </DropdownItem>
+                        
                     </Dropdown>
                 </DropdownMenu>
             )}
