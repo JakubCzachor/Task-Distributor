@@ -50,12 +50,11 @@ function IncTasks() {
 
     return (
         <div className="taskUncomplete">
-            <h2> Uncompleted Tasks: </h2>
+            <h2> My Requested Uncompleted Tasks: </h2>
             {tasks.length > 0 ? (
                 tasks.map((task, key) => (
                     <div className="task" key={key}>
-                        <p> Title: {task.title}</p>
-                        <p> Description: {task.description}</p>
+                        <p> Task: {task.description}<br /><br /></p>
                     </div>
                 ))
             ) : (
