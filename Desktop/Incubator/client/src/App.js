@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Form from './components/common/Form';
 import Home from './components/Home';
-import Task from './components/Task';
-// import Search from "./components/Search";
-// import Add from "./components/Add";
-// import Tasks from "./components/Tasks";
-// import Complete from "./components/Complete";
-// import Submit from "./components/Submit";
+import Search from "./components/Search";
+import Add from "./components/Task";
+import Tasks from "./components/Tasks";
+import Complete from "./components/Complete";
+import Submit from "./components/Submit";
+import footer from "./footer"
 import { app } from './fire';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
@@ -100,13 +100,10 @@ function App() {
                         element={
                             <Home />}
                     />
-                    <Route path ='/AddTask' element = {<Task />} />
-
-                    {
-                    /* <Route path='/submit'
+                    <Route path='/submit'
                         element={
                             <Submit />} />
-                    <Route path= '/add'
+                    <Route path= '/AddTask'
                             element = {
                             <Add />} />
                     <Route path='/tasks'
@@ -115,9 +112,9 @@ function App() {
                     <Route path='/complete'
                         element={
                             <Complete />} />
-                    <Route path='/search'
+                    <Route path='/Search'
                         element={
-                            <Search />} /> */}
+                            <Search />} />
                 </Routes>
             </>
         </div>
