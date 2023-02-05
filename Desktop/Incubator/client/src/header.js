@@ -65,14 +65,26 @@ const DropdownItem = styled.li`
   margin: 0px;
 `;
 
-
+const LogoutLink = styled.a`
+  color: #fff;
+  text-decoration: none;
+  margin-right:20px;
+  cursor:pointer;
+`;
 const Header = () => {
     const [activeLink, setActiveLink] = useState("");
     const [showDropdown, setShowDropdown] = useState(false);
+    const authToken = sessionStorage.getItem("Auth Token");
+    const logout = () => {
+        sessionStorage.removeItem('Auth Token');
+        window.location.href = '/login';
+        window.location.reload();
+    };
+
     return (
         <HeaderContainer>
             <TitleLink to="/">
-                <Title>Example Title</Title>
+                <Title>Task Distributor</Title>
             </TitleLink>
             <DropdownToggle onClick={() => setShowDropdown(!showDropdown)}>
                 <span>&#9776;</span>
@@ -102,29 +114,28 @@ const Header = () => {
             )}
 
             <nav>
-                <NavLink
-                    to="/home"
-                    onClick={() => setActiveLink("home")}
-                    className={activeLink === "home" ? "active" : ""}
-                >
-                    Home
-                </NavLink>
-                <NavLink
-                    to="/login"
-                    onClick={() => setActiveLink("login")}
-                    className={activeLink === "login" ? "active" : ""}
-                >
-                    Login
-                </NavLink>
-                <NavLink
-                    to="/register"
-                    onClick={() => setActiveLink("register")}
-                    className={activeLink === "register" ? "active" : ""}
-                >
-                    Register
-                </NavLink>
-                
+                {authToken ? (
+                    <LogoutLink onClick={logout}>Logout</LogoutLink>
+                ) : (
+                    <>
+                        <NavLink
+                            to="/login"
+                            onClick={() => setActiveLink("login")}
+                            className={activeLink === "login" ? "active" : ""}
+                        >
+                            Login
+                        </NavLink>
+                        <NavLink
+                            to="/register"
+                            onClick={() => setActiveLink("register")}
+                            className={activeLink === "register" ? "active" : ""}
+                        >
+                            Register
+                        </NavLink>
+                    </>
+                )}
             </nav>
+
         </HeaderContainer>
     );
 };
