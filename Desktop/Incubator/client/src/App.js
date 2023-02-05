@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Form from './components/common/Form';
 import Home from './components/Home';
+import Task from './components/Task';
 // import Search from "./components/Search";
 // import Add from "./components/Add";
 // import Tasks from "./components/Tasks";
@@ -99,7 +100,10 @@ function App() {
                         element={
                             <Home />}
                     />
-                    <Route path='/submit'
+                    <Route path ='/AddTask' element = {<Task />} />
+
+                    {
+                    /* <Route path='/submit'
                         element={
                             <Submit />} />
                     <Route path= '/add'
@@ -113,7 +117,7 @@ function App() {
                             <Complete />} />
                     <Route path='/search'
                         element={
-                            <Search />} />
+                            <Search />} /> */}
                 </Routes>
             </>
         </div>
