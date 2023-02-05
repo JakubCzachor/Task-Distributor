@@ -38,7 +38,6 @@ function ComTasks() {
         collectionSnapshot.forEach(function (doc) {
             taskArray.push({
                 id: doc.data().name,
-                title: doc.data().title,
                 description: doc.data().description
             });
         });
@@ -51,12 +50,11 @@ function ComTasks() {
 
     return (
         <div className="taskComplete">
-            <h2> My Completed Tasks: </h2>
+            <h2> My Requested Completed Tasks: </h2>
             {tasks.length > 0 ? (
                 tasks.map((task, key) => (
                     <div className="task" key={key}>
-                        <p> Title: {task.title}</p>
-                        <p> Description: {task.description}</p>
+                        <p> Task: {task.description}<br /><br /></p>
                     </div>
                 ))
             ) : (
