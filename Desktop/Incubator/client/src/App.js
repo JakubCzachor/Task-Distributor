@@ -35,6 +35,7 @@ function App() {
                     navigate('/home')
                     sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
                     sessionStorage.setItem('Email', email)
+                    window.location.reload();
                 })
                 .catch((error) => {
                     console.log(error.code)
