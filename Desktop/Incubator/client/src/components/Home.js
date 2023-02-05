@@ -8,6 +8,7 @@ import { getFirestore } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../fire";
 import Header from "../header";
+import AuthHeader from "../AuthHeader";
 import Button from '@mui/material/Button';
 
 const AnimatedButton = styled.button`
@@ -66,7 +67,7 @@ export default function Home() {
 
         return (
             <div className="homepage">
-                <h1>All Available Tasks: </h1>
+                <h1>All Tasks: </h1>
                 <ul>
                     {tasks.map((task) => (
                         <li key={task.id}>
