@@ -4,18 +4,20 @@ import React,{useState} from 'react'
 import {db} from '../fire'
 const EditTask = ({task,id}) => {
 
-
+  const [description, setDescription] = useState('')
     const[UpdatedTask,setUpdatesTask] = useState([task])
 
     const updateTask = async(e)=>{
         e.preventDefault();
 
         try{
-            const taskDocument = doc(db,"tasks",id)
+            const taskDocument = doc(db,"Tasks",id)
             await updateDoc(taskDocument,{
-                task: UpdatedTask,
-                isChecked:false
-            })
+              task: UpdatedTask,
+              submitLink: String(description),
+              isChecked:false,
+              completed: true,
+          })
             window.location.reload()
         }catch(err){
             console.log(err)
@@ -46,9 +48,9 @@ const EditTask = ({task,id}) => {
             defaultValue={UpdatedTask}
             onChange = {e => setUpdatesTask(e.target.value)}
             />
+<input type = "text" value = {description}    onChange={(e) => setDescription(e.target.value.toLowerCase())} placeholder = "submit"/>
 
-        {/* </form> */}
-      </div>
+ </div>
       <div className="modal-footer">
         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button 

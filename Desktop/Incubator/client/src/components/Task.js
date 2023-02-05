@@ -2,13 +2,31 @@ import { addDoc,collection, deleteDoc, doc, getDocs, runTransaction } from 'fire
 import React, {useEffect,useState} from 'react'
 import { db } from "../fire";
 import EditTask from './EditTask';
+import { useNavigate } from 'react-router-dom'
+
 
 const Task = () => {
     
     const[tasks,setTasks] = useState([])
     const[createTask,setCreateTask] = useState("")
     const[checked,setChecked] = useState([])
-    const collectionRef = collection(db,'tasks')
+    const collectionRef = collection(db,'Tasks')
+
+
+    let navigate = useNavigate();
+useEffect(() => {
+        let authToken = sessionStorage.getItem('Auth Token')
+        let emailToken = sessionStorage.getItem('Email')
+        console.log(authToken)
+        console.log(emailToken)
+        if (authToken) {
+            navigate('/AddTask')
+        }
+
+        if (!authToken) {
+            navigate('/login')
+        }
+    },[]);
 
     useEffect(() => {
         const getTasks = async() =>{
@@ -29,9 +47,14 @@ const Task = () => {
         e.preventDefault();
         try{
             await addDoc(collectionRef,{
+                description: createTask,
+                 createdBy: sessionStorage.getItem("Email"),
+keywords: createTask.split(" "),
                 task: createTask,
-                isChecked:false
-            })
+                isChecked:false,
+                completed: false,
+                unclaimed: true,
+                claimed: false,})
             window.location.reload()
         } catch(err){
             console.log(err)
@@ -41,7 +64,7 @@ const Task = () => {
     const deleteTask = async(id) =>{
         if (window.confirm('are you sure you want to delete the task?')) {
             try{
-                const documentReff = doc(db,"tasks",id)
+                const documentReff = doc(db,"Tasks",id)
                 await deleteDoc(documentReff)
                 window.location.reload()
             }catch(err){
@@ -65,7 +88,7 @@ const Task = () => {
         })
         //persiting check values
         try{
-            const docRef = doc(db,"tasks",event.target.name)
+            const docRef = doc(db,"Tasks",event.target.name)
             await runTransaction(db,async(transaction)=>{
                 const taskDoc = await transaction.get(docRef)
                 if(!taskDoc.exists()){
