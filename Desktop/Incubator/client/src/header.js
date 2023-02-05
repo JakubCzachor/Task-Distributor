@@ -81,24 +81,26 @@ const Header = () => {
                 <DropdownMenu>
                     <Dropdown>
                         <DropdownItem>
-                            <StyledLink to="/search">Search New Tasks</StyledLink>
+                            <StyledLink to="/search">Search/Claim New Tasks</StyledLink>
                         </DropdownItem>
                         <DropdownItem>
                             <StyledLink to="/AddTask">Add/Submit Tasks</StyledLink>
                         </DropdownItem>
                         <DropdownItem>
-                            <StyledLink to="/tasks">My Tasks</StyledLink>
+                            <StyledLink to="/Submit">Claimed Tasks</StyledLink>
                         </DropdownItem>
                         <DropdownItem>
-                            <StyledLink to="/complete">Completed Tasks</StyledLink>
+                            <StyledLink to="/Tasks">My Requested Tasks</StyledLink>
                         </DropdownItem>
                         <DropdownItem>
-                            <StyledLink to="/submit">Submit Tasks</StyledLink>
+                            <StyledLink to="/Complete">My Completed Tasks</StyledLink>
                         </DropdownItem>
-                        
+
                     </Dropdown>
+
                 </DropdownMenu>
             )}
+
             <nav>
                 <NavLink
                     to="/home"
@@ -121,7 +123,7 @@ const Header = () => {
                 >
                     Register
                 </NavLink>
-            
+                
             </nav>
         </HeaderContainer>
     );
