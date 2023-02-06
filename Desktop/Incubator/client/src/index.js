@@ -12,7 +12,7 @@ import {
 ReactDOM.render(
     <React.StrictMode>
         <Router>
-            <><Header /><App /><Footer /><</>
+            <><Header /><App /><Footer /></>
         </Router>
     </React.StrictMode>,
     document.getElementById('root')
