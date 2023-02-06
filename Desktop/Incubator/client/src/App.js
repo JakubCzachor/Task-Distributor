@@ -9,6 +9,7 @@ import Add from "./components/Task";
 import Tasks from "./components/Tasks";
 import Complete from "./components/Complete";
 import Submit from "./components/Submit";
+import AboutPage from './About';
 import footer from "./footer"
 import { app } from './fire';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
@@ -21,6 +22,7 @@ import {
 } from "react-router-dom";
 
 import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
     const [email, setEmail] = useState('');
@@ -116,6 +118,7 @@ function App() {
                     <Route path='/Search'
                         element={
                             <Search />} />
+                    <Route path = '/' element={<AboutPage/>}/>
                 </Routes>
             </>
         </div>
