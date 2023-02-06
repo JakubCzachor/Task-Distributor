@@ -1,16 +1,16 @@
 .App {
     text-align: center;
     background: #D9D9D9;
-
 }
+
 .homepage {
-    background: #ff0000;
+    background-color: #D9D9D9;
     text-align: left;
     font-family: Nunito;
     font-weight: bold;
     padding-bottom: 600px;
-    
 }
+
     .homepage Button {
         position: absolute;
         top: 50%;
@@ -29,8 +29,21 @@ body {
 .App-link {
     color: #61dafb;
 }
+footer {
+    padding-top: 100px;
+    background-color: #D9D9D9;
+}
+.inputClass {
 
+}
 
-
-
-
+.searchBar{
+    padding-top:50px;
+    margin-bottom:50px;
+}
+.searchPart h2 {
+    padding-top:30px;
+}
+.searchPart inputClass {
+    margin-top:30px;
+}
