@@ -81,9 +81,10 @@ function Search() {
     }, [searchTerm]);
 
     return (
-        <div>
-        <div className="Search keywords for tasks: ">
-            <input
+        <div className="searchPart">
+        <div className="searchBar ">
+                <input
+
                 type="text"
                 placeholder="Keyword..."
                 value={searchTerm}
@@ -100,7 +101,7 @@ function Search() {
             </div>
             <div className="claimTask">
                 <h2> Claim Task: </h2>
-                <input
+                <input className = "inputClass"
                     type="text"
                     placeholder="Task ID..."
                     value={claimedTask}
