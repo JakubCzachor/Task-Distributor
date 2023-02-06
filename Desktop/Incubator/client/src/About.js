@@ -15,7 +15,7 @@ const AboutPage = () => {
 
         <p>Name: Jakub Czachor <a href = 'https://github.com/JakubCzachor'>GitHub</a></p>
         <p>Name: Vianey Tlapechco <a href='https://github.com/vianeyt'>GitHub</a></p>
-        <p>Name: Mouhamed Dia <a href ='https://github.com/Mouhameddia96'>Email</a></p>
+        <p>Name: Mouhamed Dia <a href ='https://github.com/Mouhameddia96'>Github</a></p>
     </div>
   );
 };
